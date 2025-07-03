@@ -1,0 +1,21 @@
+{
+  "flight_number": "AI101",
+  "destination": "Mumbai",
+  "total_seats": 2,
+  "seat_assignments": {
+    "1A": {
+      "name": "Umang",
+      "passport_id": "AG1234567"
+    },
+    "1B": {
+      "name": "Dana",
+      "passport_id": "VG5678987"
+    }
+  },
+  "waiting_list": [
+    {
+      "name": "Mohan",
+      "passport_id": "JK1234567"
+    }
+  ]
+}
