@@ -10,6 +10,11 @@ from data_manager import FlightDataManager
 system = BookingSystem()
 manager = FlightDataManager()
 
+# Load flights from files if available
+loaded_flights = manager.load_all_flights()
+if loaded_flights:
+    system.flights.update(loaded_flights)
+
 # Predefined Indian flights
 predefined_flights = [
     ("AI101", "Delhi", "Mumbai", 2),
@@ -20,8 +25,9 @@ predefined_flights = [
 ]
 
 for code, src, dest, seats in predefined_flights:
-    system.flights[code] = Flight(code, dest, seats)
-    system.flights[code].source = src
+    if code not in system.flights:
+        system.flights[code] = Flight(code, dest, seats)
+        system.flights[code].source = src
 
 def menu():
     print("\n===== Flight Booking System =====")
